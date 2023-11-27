@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/styles/board.css">
+    <link rel="stylesheet" href="./assets/styles/main.css">
+    <title>Scrum board</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <div class="d-flex flex-column h-100">
+        <header>
+            <div class="brand">
+                <a href="./index.html">
+                    <img src="./assets/icons/logo.svg" alt="logo" />
+                </a>
+            </div>
+            <div class="curr_page">
+                <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+                    <g>
+                        <path
+                            d="M4 18h16.008C20 18 20 6 20 6H3.992C4 6 4 18 4 18zM2 5.994C2 4.893 2.898 4 3.99 4h16.02C21.108 4 22 4.895 22 5.994v12.012A1.997 1.997 0 0120.01 20H3.99A1.994 1.994 0 012 18.006V5.994z">
+                        </path>
+                        <path d="M8 6v12h2V6zm6 0v12h2V6z"></path>
+                    </g>
+                </svg>
+                <span>Scrum Board</span>
+            </div>
+            <div class="user_info">
+                <img src="./assets/icons/notification_icon.svg" alt="notification_icon" />
+                <div class="user_img"></div>
+            </div>
+        </header>
+        <div class="flex-grow-1 d-flex bg-cyan">
+            <div class="aside_wrapper">
+                <aside id="aside">
+                    <div id="aside_icon"></div>
+                    <div class="aside_head">
+                        <div class="project_img aside_mobile_hidden"></div>
+                        <div class="project_info aside_tablet_hidden">
+                            <h5>Project 1</h5>
+                            <p>Software Project</p>
+                        </div>
+                    </div>
+                    <h6 class="aside_tablet_hidden">PLANNING</h6>
+                    <ul class="aside_pages aside_mobile_hidden">
+                        <li>
+                            <a href="./timer.html">
+                                <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+                                    <path
+                                        d="M6 2h10a3 3 0 010 6H6a3 3 0 110-6zm0 2a1 1 0 100 2h10a1 1 0 000-2H6zm4 5h8a3 3 0 010 6h-8a3 3 0 010-6zm0 2a1 1 0 000 2h8a1 1 0 000-2h-8zm-4 5h6a3 3 0 010 6H6a3 3 0 010-6zm0 2a1 1 0 000 2h6a1 1 0 000-2H6z"
+                                        fill-rule="evenodd"></path>
+                                </svg>
+                                <span class="aside_tablet_hidden">Timeline</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./index.html">
+                                <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+                                    <g>
+                                        <path
+                                            d="M5 19.002C5 19 17 19 17 19v-2.002C17 17 5 17 5 17v2.002zm-2-2.004C3 15.894 3.895 15 4.994 15h12.012c1.101 0 1.994.898 1.994 1.998v2.004A1.997 1.997 0 0117.006 21H4.994A1.998 1.998 0 013 19.002v-2.004z">
+                                        </path>
+                                        <path d="M5 15h12v-2H5v2zm-2-4h16v6H3v-6z"></path>
+                                        <path
+                                            d="M7 11.002C7 11 19 11 19 11V8.998C19 9 7 9 7 9v2.002zM5 8.998C5 7.894 5.895 7 6.994 7h12.012C20.107 7 21 7.898 21 8.998v2.004A1.997 1.997 0 0119.006 13H6.994A1.998 1.998 0 015 11.002V8.998z">
+                                        </path>
+                                        <path
+                                            d="M5 5v2h12V5H5zm-2-.002C3 3.894 3.895 3 4.994 3h12.012C18.107 3 19 3.898 19 4.998V9H3V4.998z">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span class="aside_tablet_hidden">Backlog</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="./board.html">
+                                <svg width="24" height="24" viewBox="0 0 24 24" role="presentation">
+                                    <g>
+                                        <path
+                                            d="M4 18h16.008C20 18 20 6 20 6H3.992C4 6 4 18 4 18zM2 5.994C2 4.893 2.898 4 3.99 4h16.02C21.108 4 22 4.895 22 5.994v12.012A1.997 1.997 0 0120.01 20H3.99A1.994 1.994 0 012 18.006V5.994z">
+                                        </path>
+                                        <path d="M8 6v12h2V6zm6 0v12h2V6z"></path>
+                                    </g>
+                                </svg>
+                                <span class="aside_tablet_hidden">Board</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./settings.html">
+                                <i class="fa-solid fa-gear"></i>
+                                <span class="aside_tablet_hidden">Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <h6 class="aside_tablet_hidden">Users</h6>
+                    <div class="aside_users aside_tablet_f_hidden">
+                        <div class="user"></div>
+                        <div class="user"></div>
+                        <div class="user"></div>
+                    </div>
+                    <p class="aside_footer aside_tablet_hidden">
+                        Vous faites partie d'un projet géré par l'équipe
+                    </p>
+                </aside>
+            </div>
+            <main class="m-3">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 fs-14">
+                            <li class="breadcrumb-item text-secondary">
+                                <a href="#">Projects</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Project1
+                            </li>
+                        </ol>
+                    </nav>
+                    <h3 class="fs-4 fw-semibold mt-1 mb-4">Sprint 1</h3>
+                    <div class="d-flex justify-content-between">
+                        <input type="text" id="searchInput" placeholder=" &#xf002;">
+                        <div id="searchResults"></div>
+                        <button type="button" class="btn custom-bg ">
+                            <span class="text-muted" data-bs-toggle="modal" data-bs-target="#myModal2"><strong>Terminer
+                                    le sprint</strong></span>
+                        </button>
+
+                    </div>
+                    <div class="cartes row mt-2" id="content">
+
+                        <!-- "A FAIRE"  -->
+                        <div class="carte col-lg-3">
+                            <div class="arrive p-3" id="sortable1">
+                                <div class="sticky-choice d-flex justify-content-between">
+                                    <div class="title h6 text-muted" contentEditable="true">A faire</div>
+                                    <p class="title h6 text-muted" id="cartesAFaireCount">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!----------en cours-->
+                        <div class="carte col-lg-3">
+                            <div class="arrive p-3" id="sortable2">
+                                <div class="sticky-choice d-flex justify-content-between">
+                                    <div class="title h6 text-muted" contentEditable="true">En cours</div>
+                                    <p class="title h6 text-muted" id="cartesEnCoursCount">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-----------fini-->
+                        <div class="carte col-lg-3">
+                            <div class="arrive p-3" id="sortable3">
+                                <div class="sticky-choice d-flex justify-content-between">
+                                    <div class="title h6 text-muted" contentEditable="true">Fini</div>
+                                    <p class="title h6 text-muted" id="cartesFiniCount">0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--------------------------------------------------------MODAL---------------------------------------------------->
+                    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="modalLabel">Créer l’histoire d’utilisateur</h3>
+                                    <div class="modal-header-img">
+                                        <img src="./assets/icons/eye.png" alt="photo">
+                                        <img src="./assets/icons/share-alt-solid-24 (3) 1.png" alt="photo">
+                                        <img src="./assets/icons/like-regular-24 1.png" alt="photo">
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fermer">
+                                            <span aria-hidden="true"><img
+                                                    src="./assets/icons/x-fermer-modale.png"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row m-1">
+                                        <div class="col-sm-6 ">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="h5">Description</div>
+                                                <div class="d-flex">
+                                                    <select id="fontSize" onchange="changeFontSize()">
+                                                        <option>Size</option>
+                                                        <option value="12px">12px</option>
+                                                        <option value="16px">16px</option>
+                                                        <option value="20px">20px</option>
+                                                    </select>
+                                                    <div>
+                                                        <label for="fontColor"></label>
+                                                        <input type="color" value="#8B919A" id="fontColor"
+                                                            onchange="changeFontColor()">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="editableContent"></label>
+                                                <textarea class="form-control" id="editableContent"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 border ">
+                                            <div class="h5 border-bottom">Détails</div>
+                                            <div class="d-flex justify-content-between">
+                                                <p>Responsable</p>
+                                                <div class="d-flex">
+                                                    <div class="circle1">
+                                                        <p>AA</p>
+                                                    </div>
+                                                    <p>Anass AIT</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <p>Sprint</p>
+                                                <p>Board Sprint 1</p>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <p>Story point estimate</p>
+                                                <p>Aucun Story </p>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <p>Rapporteur</p>
+                                                <div class="d-flex">
+                                                    <div class="circle1">
+                                                        <p>MB</p>
+                                                    </div>
+                                                    <p>Med BNE</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Fermer</button>
+                                    <button type="button" class="btn btn-primary" id="saveChangesButton">Sauvegarder les
+                                        modifications</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-------------------------------------------------------------------Modal terminer sprint---------------------------------------------------->
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <img src="./assets/icons/modale-sprint.png" alt="image de background">
+                                </div>
+                                <div class="modal-body">
+                                    <h5>Terminer Tableau sprint 1</h5>
+                                    <p>Ce sprint comprend :</p>
+                                    <ul id="ticketsTermines" class="list-group m-4">
+                                        <li>0 ticket terminé</li>
+                                        <li>3 tickets ouverts</li>
+                                    </ul>
+                                    <p>Déplacer les tickets ouverts vers</p>
+                                    <select class="select-input" name="pets">
+                                        <option>Nouveau sprint</option>
+                                        <option>Backlog</option>
+                                    </select>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Terminer le
+                                        sprint</button>
+                                    <button type="button" class="btn btn-primary"
+                                        data-bs-dismiss="modal">Annuler</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+            </main>
+        </div>
+    </div>
+    </div>
+
+
+    <script>
+        let user_stories = [
+            {
+                name: 'userStory 1',
+                description: 'Description du Sprint 1',
+                status: 0,
+                start: "01-01-2000",
+                duration: 1
+            },
+            {
+                name: 'userStory 2',
+                description: 'Description du Sprint 2',
+                status: 0,
+                start: "01-01-2000",
+                duration: 1
+            },
+            {
+                name: 'userStory 3',
+                description: 'Description du Sprint 3',
+                status: 1,
+                start: "01-01-2000",
+                duration: 1
+            }
+        ];
+        // Function load from local storage
+        function loadSprintsFromLocalStorage() {
+            const sprintsJSON = localStorage.getItem('user_stories');
+            return sprintsJSON ? JSON.parse(sprintsJSON) : [];
+        }
+
+        // Function to save to local storage
+        function saveSprintsToLocalStorage() {
+            localStorage.setItem('user_stories', JSON.stringify(user_stories));
+        }
+
+
+        // Call the function to load all
+        window.addEventListener('load', loadSprintsToACarte)
+
+        // Au chargement de la page, assurez-vous que tous les éléments sont affichés
+        window.addEventListener('load', function () {
+            filterContent('');
+        });
+
+
+        function initializeCards() {
+            const todoSection = document.querySelector('#sortable1');
+            const inProgressSection = document.querySelector('#sortable2');
+            const doneSection = document.querySelector('#sortable3');
+
+            user_stories.forEach((userStory, index) => {
+                const card = createSprintCard(userStory, index);
+
+                card.addEventListener('click', function () {
+                    openModalForSprint(userStory);
+                });
+
+                switch (userStory.status) {
+                    case 0: // a faire status 0
+                        todoSection.appendChild(card);
+                        break;
+                    case 1: // En cours status 1
+                        inProgressSection.appendChild(card);
+                        break;
+                    case 2: // Fini status 2
+                        doneSection.appendChild(card);
+                        break;
+                }
+            });
+        }
+
+        function createSprintCard(story) {
+            const card = document.createElement('div');
+            card.className = 'zone p-2 rounded bg-white mt-2';
+            const paragraph = document.createElement('p');
+            paragraph.className = 'clickable-paragraph';
+            paragraph.contentEditable = true;
+            paragraph.textContent = story.name;
+            const buttonContainer = document.createElement('div');
+            buttonContainer.style.display = 'flex';
+
+            const editIcon = document.createElement('img');
+            editIcon.src = './assets/icons/modif.svg';
+            editIcon.className = 'modifier-story';
+            editIcon.onclick = function (event) {
+                //event.stopPropagation();
+                editParagraph(this, story.name);
+
+            };
+
+            const deleteIcon = document.createElement('img');
+            deleteIcon.src = './assets/icons/supprimer-story.png';
+            deleteIcon.className = 'supprimer-story';
+            deleteIcon.onclick = function (event) {
+                //event.stopPropagation();
+                supprimerStory(this);
+
+            };
+
+
+            const additionalInfo = document.createElement('div');
+            additionalInfo.className = 'd-flex justify-content-between';
+
+            const scrumBoardStory = document.createElement('div');
+            scrumBoardStory.className = 'scrum-board-story';
+
+            const ScrumImg = document.createElement('img');
+            ScrumImg.src = 'https://breif.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium';
+
+            const breadcrumbNav = document.createElement('nav');
+            breadcrumbNav.setAttribute('aria-label', 'breadcrumb');
+
+            const breadcrumbOl = document.createElement('ol');
+            breadcrumbOl.className = 'breadcrumb mb-0 fs-14';
+
+            const breadcrumbLi = document.createElement('li');
+            breadcrumbLi.className = 'breadcrumb-item text-secondary';
+
+            const breadcrumbLink = document.createElement('a');
+            breadcrumbLink.className = 'breadcrumb-scrum';
+            breadcrumbLink.textContent = 'SCRUMBOARD-1';
+            breadcrumbLink.setAttribute('data-bs-toggle', 'modal');
+            breadcrumbLink.setAttribute('data-bs-target', '#myModal');
+
+            breadcrumbLink.addEventListener('click', function () {
+                const editableContent = document.getElementById('editableContent');
+                editableContent.value = story.description;
+            });
+
+            const circleDiv = document.createElement('div');
+            circleDiv.className = 'circle';
+            circleDiv.innerHTML = '<p>AA</p>';
+
+            buttonContainer.appendChild(editIcon);
+            buttonContainer.appendChild(deleteIcon);
+
+            additionalInfo.appendChild(scrumBoardStory);
+            scrumBoardStory.appendChild(ScrumImg);
+            scrumBoardStory.appendChild(breadcrumbNav);
+            breadcrumbNav.appendChild(breadcrumbOl);
+            breadcrumbOl.appendChild(breadcrumbLi);
+            breadcrumbLi.appendChild(breadcrumbLink);
+            additionalInfo.appendChild(circleDiv);
+
+            card.appendChild(paragraph);
+            card.appendChild(buttonContainer);
+            card.appendChild(additionalInfo);
+
+            card.addEventListener('mouseover', function () {
+                card.classList.replace('bg-white', 'nouvelle-couleur-hover');
+            });
+
+            card.addEventListener('mouseout', function () {
+                card.classList.replace('nouvelle-couleur-hover', 'bg-white');
+            });
+            //card.setAttribute('data-bs-toggle', 'modal');
+            //card.setAttribute('data-bs-target', '#myModal');
+
+
+            return card;
+        }
+
+        initializeCards();
+
+
+        function loadSprintsToACarte() {
+            const cartesAFaireCount = user_stories.filter(story => story.status === 0).length;
+            const cartesEnCoursCount = user_stories.filter(story => story.status === 1).length;
+            const cartesFiniCount = user_stories.filter(story => story.status === 2).length;
+
+            document.getElementById('cartesAFaireCount').textContent = cartesAFaireCount;
+            document.getElementById('cartesEnCoursCount').textContent = cartesEnCoursCount;
+            document.getElementById('cartesFiniCount').textContent = cartesFiniCount;
+
+            saveSprintsToLocalStorage();
+        }
+
+
+        //FUNCTION FOR EDIT 
+        function editParagraph(button, storyName) {
+            var parentCard = button.closest('.zone');
+            var paragraph = parentCard.querySelector('.clickable-paragraph');
+            paragraph.focus();
+            const userStory = user_stories.find(story => story.name === storyName);
+            const newName = paragraph.textContent;
+            userStory.name = newName;
+            saveSprintsToLocalStorage();
+        }
+
+
+
+
+        ///
+       
+        function supprimerStory(button) {
+            var userStory = button.closest('.zone');
+            if (userStory) {
+                // Obtenez le nom de la carte
+                const storyName = userStory.querySelector('.clickable-paragraph').textContent.trim();
+                const index = user_stories.findIndex(story => story.name === storyName);
+
+                if (index !== -1) {
+                    // Supprimez l'élément du tableau user_stories
+                    const removedSprint = user_stories.splice(index, 1)[0];
+                    if (removedSprint.status === 0) {
+                        cartesAFaireCount--;
+                        document.getElementById('cartesAFaireCount').textContent = cartesAFaireCount;
+                    }
+
+                    userStory.remove();
+                    loadSprintsToACarte();
+                    saveSprintsToLocalStorage();
+
+                }
+            }
+        }
+
+
+        //Suivre la modification de la description de chaque story
+
+        let currentSprint = null;
+
+        function openModalForSprint(story) {
+            currentSprint = story;
+            const editableContent = document.getElementById('editableContent');
+            editableContent.value = story.description;
+        }
+
+        // Gestionnaire de clic pour le bouton "Fermer" du modal
+        const closeButton = document.getElementById('closeButton');
+        if (closeButton) {
+            closeButton.addEventListener('click', function () {
+                currentSprint = null;
+            });
+        }
+
+        // Gestionnaire de clic pour le bouton "Sauvegarder"
+        const saveChangesButton = document.getElementById('saveChangesButton');
+        if (saveChangesButton) {
+            saveChangesButton.addEventListener('click', function () {
+                if (currentSprint) {
+                    const modifiedDescription = document.getElementById('editableContent').value;
+
+                    currentSprint.description = modifiedDescription;
+                    saveSprintsToLocalStorage();
+                }
+            });
+        }
+
+        $(".arrive").sortable({
+            connectWith: ".arrive",
+            helper: "clone",
+            placeholder: "ui-state-highlight",
+            stop: function (event, ui) {
+                const draggedUserStory = ui.item[0];
+                const draggedStoryName = $(draggedUserStory).find('.clickable-paragraph').text().trim();
+                const parentSection = draggedUserStory.parentElement;
+
+                const index = user_stories.findIndex(story => story.name === draggedStoryName);
+
+                if (index !== -1) {
+
+                    if (parentSection.id === 'sortable1') {
+                        user_stories[index].status = 0;
+
+                    }
+                    if (parentSection.id === 'sortable2') {
+                        user_stories[index].status = 1;
+                    }
+                    if (parentSection.id === 'sortable3') {
+                        user_stories[index].status = 2;
+
+                    }
+
+
+                    saveSprintsToLocalStorage();
+                    loadSprintsToACarte();
+                }
+            }
+        });
+
+        
+        // Changer la taille du texte
+        function changeFontSize() {
+            var fontSize = document.getElementById("fontSize").value;
+            document.getElementById("editableContent").style.fontSize = fontSize;
+        }
+
+        // Changer la couleur du texte
+        function changeFontColor() {
+            var fontColor = document.getElementById("fontColor").value;
+            document.getElementById("editableContent").style.color = fontColor;
+        }
+
+
+        document.getElementById('myModal2').addEventListener('show.bs.modal', function (event) {
+
+            const ticketsAFaire = user_stories.filter(story => story.status === 0).length;
+            const ticketsEnCours = user_stories.filter(story => story.status === 1).length;
+            const ticketOuvert = ticketsAFaire + ticketsEnCours;
+
+            const ticketsFini = user_stories.filter(story => story.status === 2).length;
+
+            const ticketsTerminesElement = document.getElementById('ticketsTermines');
+
+            ticketsTerminesElement.innerHTML = `
+        <li>${ticketOuvert} ticket${ticketOuvert !== 1 ? 's' : ''} ouvert${ticketOuvert !== 1 ? 's' : ''}</li>
+        <li>${ticketsFini} ticket${ticketsFini !== 1 ? 's' : ''} terminé${ticketsFini !== 1 ? 's' : ''}</li>
+    `;
+        });
+
+        //SEAECH BOUTON
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const content = document.getElementById('content');
+
+        searchInput.addEventListener('input', function () {
+            const searchTerm = searchInput.value.toLowerCase();
+            filterContent(searchTerm);
+        });
+
+
+        function filterContent(searchTerm) {
+            const searshes = content.querySelectorAll('.zone');
+
+            for (const item of searshes) {
+                const text = item.textContent.toLowerCase();
+
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        }
+
+
+    </script>
+    <script src="./scripts/main.js"></script>
+
+
+</body>
+
+</html>

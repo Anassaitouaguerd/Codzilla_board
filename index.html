@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/styles/bootstrap.css" />
+    <link rel="stylesheet" href="./assets/styles/backlog.css" />
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+    <title>Codzilla Board</title>
+    <link
+    rel="stylesheet"
+    href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+  />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body>
+    <div class="d-flex flex-column h-100">
+      <header>
+        <div class="brand">
+          <a href="./index.html">
+            <img src="./assets/icons/logo.svg" alt="logo" />
+          </a>
+        </div>
+        <div class="curr_page">
+          <img src="./assets/icons/backlog_icon.svg" alt="backlog_icon" />
+          <span>Backlog</span>
+        </div>
+        <div class="user_info">
+          <img
+            src="./assets/icons/notification_icon.svg"
+            alt="notification_icon"
+          />
+          <div class="user_img"></div>
+        </div>
+      </header>
+      <div class="backlog flex-grow-1 d-flex">
+        <div class="aside_wrapper">
+          <aside id="aside">
+            <div id="aside_icon"></div>
+            <div class="aside_head">
+              <div class="project_img aside_mobile_hidden"></div>
+              <div class="project_info aside_tablet_hidden">
+                <h5>Project 1</h5>
+                <p>Software Project</p>
+              </div>
+            </div>
+            <h6 class="aside_tablet_hidden">PLANNING</h6>
+            <ul class="aside_pages aside_mobile_hidden">
+              <li>
+                <a href="./timer.html">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    role="presentation"
+                  >
+                    <path
+                      d="M6 2h10a3 3 0 010 6H6a3 3 0 110-6zm0 2a1 1 0 100 2h10a1 1 0 000-2H6zm4 5h8a3 3 0 010 6h-8a3 3 0 010-6zm0 2a1 1 0 000 2h8a1 1 0 000-2h-8zm-4 5h6a3 3 0 010 6H6a3 3 0 010-6zm0 2a1 1 0 000 2h6a1 1 0 000-2H6z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                  <span class="aside_tablet_hidden">Timeline</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="./index.html">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    role="presentation"
+                  >
+                    <g>
+                      <path
+                        d="M5 19.002C5 19 17 19 17 19v-2.002C17 17 5 17 5 17v2.002zm-2-2.004C3 15.894 3.895 15 4.994 15h12.012c1.101 0 1.994.898 1.994 1.998v2.004A1.997 1.997 0 0117.006 21H4.994A1.998 1.998 0 013 19.002v-2.004z"
+                      ></path>
+                      <path d="M5 15h12v-2H5v2zm-2-4h16v6H3v-6z"></path>
+                      <path
+                        d="M7 11.002C7 11 19 11 19 11V8.998C19 9 7 9 7 9v2.002zM5 8.998C5 7.894 5.895 7 6.994 7h12.012C20.107 7 21 7.898 21 8.998v2.004A1.997 1.997 0 0119.006 13H6.994A1.998 1.998 0 015 11.002V8.998z"
+                      ></path>
+                      <path
+                        d="M5 5v2h12V5H5zm-2-.002C3 3.894 3.895 3 4.994 3h12.012C18.107 3 19 3.898 19 4.998V9H3V4.998z"
+                      ></path>
+                    </g>
+                  </svg>
+                  <span class="aside_tablet_hidden">Backlog</span>
+                </a>
+              </li>
+              <li>
+                <a href="./board.html">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    role="presentation"
+                  >
+                    <g>
+                      <path
+                        d="M4 18h16.008C20 18 20 6 20 6H3.992C4 6 4 18 4 18zM2 5.994C2 4.893 2.898 4 3.99 4h16.02C21.108 4 22 4.895 22 5.994v12.012A1.997 1.997 0 0120.01 20H3.99A1.994 1.994 0 012 18.006V5.994z"
+                      ></path>
+                      <path d="M8 6v12h2V6zm6 0v12h2V6z"></path>
+                    </g>
+                  </svg>
+                  <span class="aside_tablet_hidden">Board</span>
+                </a>
+              </li>
+              <li>
+                <a href="./settings.html">
+                  <i class="fa-solid fa-gear"></i>
+                  <span class="aside_tablet_hidden">Settings</span>
+                </a>
+              </li>
+            </ul>
+            <h6 class="aside_tablet_hidden">Users</h6>
+            <div class="aside_users aside_tablet_f_hidden">
+              <div class="user"></div>
+              <div class="user"></div>
+              <div class="user"></div>
+            </div>
+            <p class="aside_footer aside_tablet_hidden">
+              Vous faites partie d'un projet géré par l'équipe
+            </p>
+          </aside>
+        </div>
+<!-- =================================== main =============================================== -->
+        <main id="mainPart">
+          <div class="titel_backloge mx-4">
+            <div class="d-flex pt-4">
+              <p class="px-2">project</p>
+              <p class="px-2">/</p>
+              <p class="px-2">scrum bord</p>
+            </div>
+            <h2 class="px-2">Backlog</h2>
+          </div>
+          <!--sprint-->
+          <section
+            class="sprint_section w-100 mt-4 mb-4 d-flex justify-content-center"
+          >
+            <div class="accordion" id="accordion">
+              <div class="accordion-item">
+                <h2
+                  class="accordion-header d-flex align-items-center justify-content-between"
+                >
+                  <button
+                    class="accordion-button shadow-none w-50"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    SCRUMBORD
+                    <span class="account_ticket_sprint px-4"> 0 - ticket </span>
+                  </button>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <span class="Statut_de_la_tache bg-success mx-2">0</span>
+                    <span class="Statut_de_la_tache2 mx-2">0</span>
+                    <span class="Statut_de_la_tache3 mx-2">0</span>
+                    <button class="start_sprintf h3 m-0 mx-4 p-1 d-flex align-items-center justify-content-center border-0"  data-bs-toggle="modal" data-bs-target="#myModal_sprint" >
+                      <span class="startsprint"  >start sprint</span>
+                    </button>
+                  </div>
+                </h2>
+                <!-- modal de start sprint  -->
+                <div class="modal fade" id="myModal_sprint" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="modalLabel">Démarrer le sprint</h3>
+                                <div class="modal-header-img">
+                                    <img src="./assets/icons/eye.png" alt="photo">
+                                    <img src="./assets/icons/share-alt-solid-24 (3) 1.png" alt="photo">
+                                    <img src="./assets/icons/like-regular-24 1.png" alt="photo">
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fermer">
+                                        <span aria-hidden="true"><img src="./assets/icons/x-02.png"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="m-1">
+                                  <div class="ticket_sprint d-flex align-items-center">
+                                        <span class="number_de_ticket_sprint "><b>3</b></span>
+                                        <p class="p-1 m-0">ticket sera inclus dans ce sprint.</p>
+                                       </div>
+                                       <p>Les champs obligatoires sont marqués d'un astérisque</p>
+
+                                       <!-- nome de sprint -->
+
+                                       <label for="nome_de_sprint" class="d-block mb-2 mt-2">Nome de sprint</label>
+                                       <input type="text" name="nome_de_sprint" class="namesprint rounded p-1 px-2" placeholder="Nome de sprint">
+                                       <!-- duree sprint -->
+                                       <label for="duree_de_sprint" class="d-block mb-2 mt-2">Durée</label>
+                                       <select  name="duree_de_sprint" class="namesprint rounded p-1 px-2">
+                                        <option value="1-semaines">1 semaines</option>
+                                        <option value="2-semaines">2 semaines</option>
+                                        <option value="3-semaines">3 semaines</option>
+                                        <option value="4-semaines">4 semaines</option>
+                                       </select>
+                                       <!-- deadline start sprint -->
+                                       <label for="start_de_sprint" class="d-block mb-2 mt-2">Debut de sprint</label>
+                                       <input type="date" name="start_de_sprint" class="namesprint rounded p-1 px-2" placeholder="Nome de sprint">
+                                       <!-- deadline finel sprint -->
+                                       <label for="finel_de_sprint" class="d-block mb-2 mt-2">Final de sprint</label>
+                                       <input type="date" name="finel_de_sprint" class="namesprint rounded p-1 px-2" placeholder="Nome de sprint">
+                                       <!-- objectif du sprint -->
+                                       <label for="objectif_de_sprint" class="d-block mb-2 mt-2">Objectif du sprint</label>
+                                       <textarea name="objectif_de_sprint" class="goalsprint rounded p-1 px-2" cols="30" rows="10"></textarea>
+                                    
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Fermer</button>
+                                <button type="button" class="btn btn-primary">Sauvegarder les modifications</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#accordion"
+                 
+                >
+                  <div id="container" class="accordion-body"  ondragover="over(event)" ondrop="drop(event)" id="sortable1">
+
+                    
+              </div>
+              <button
+                      class="add_ticket d-flex align-items-center px-4 pb-2" id="add_backlog_btn"
+                      onclick="createNewDiv()">
+                      <img src="./assets/icons/Add-ticket.svg" alt="" />
+                      <h6 class="m-0 mx-2">Creer un ticket</h6>
+                    </button>
+                  </div>
+                </div>
+            </div>
+          </section>
+
+          <!--backlog part -->
+          <section class="backlog w-100 d-flex justify-content-center">
+            <div class="accordion" id="accordion_backlog">
+              <div class="accordion-item">
+                <h2  class="accordion-header d-flex align-items-center justify-content-between">
+                  <button
+                    class="accordion-button collapsed shadow-none w-50"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne2"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                    id="tickets_backlog"
+                  >
+                    Backlog
+                    
+                    <span class=" account_ticket mx-4 w-25"> 0 - ticket </span>
+                  </button>
+                  <div class="d-flex align-items-center justify-content-center">
+                    <span class="Statut_de_la_tache bg-success mx-2">0</span>
+                    <span class="Statut_de_la_tache2 mx-2">0</span>
+                    <span class="Statut_de_la_tache3 mx-2">0</span>
+                </h2>
+                <div
+                  id="collapseOne2"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#accordion_backlog"
+                
+                >
+                <div id="container2" class="accordion-body"  ondragover="over(event)" ondrop="drop(event)" id="sortable1">
+                  <!-- user storie to backlog -->       
+            </div>
+            <button
+                    class="add_ticket d-flex align-items-center px-4 pb-2" id="add_backlog_btn2"
+                    onclick="createNewDiv2()"
+                  >
+                    <img src="./assets/icons/Add-ticket.svg" alt="" />
+                    <h6 class="m-0 mx-2">Creer un ticket</h6>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="./scripts/main.js"></script>
+<!-- =============================== drage and drop =========================================-->
+    <script>
+      $(function () {
+        $(".accordion-body").sortable({
+          connectWith: ".accordion-body", // Allow items to be connected between containers
+          helper: "clone", // Clone the dragged element
+          placeholder: "ui-state-highlight", // Style for placeholder when dragging
+        });
+
+        $(".accordion-body").disableSelection(); // Prevent text selection while dragging
+      });
+    </script>
+<!-- ========================================================================================== -->
+    <script src="./scripts/bootstrap.js"></script>
+  </body>
+</html>

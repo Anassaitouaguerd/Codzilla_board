@@ -1,0 +1,176 @@
+
+.p-3 {
+  background: rgb(244, 245, 247);
+  border-radius: 10px;
+
+}
+
+.p-2.rounded.bg-white {
+  border: 1px solid #94A3B8;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  background-color: #63A6FF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circle img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.circle p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #0055C5;
+  font-size: 15px;
+}
+
+.custom-bg {
+  background-color: #F1F5F9;
+}
+
+.modal-header img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.circle1 {
+  width: 30px;
+  height: 30px;
+  background-color: #63A6FF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circle1 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #0055C5;
+}
+
+.modal-header-img img {
+  width: 20px;
+  height: 20px;
+}
+
+.close {
+  border: none;
+  background: none;
+}
+
+.list-group li {
+  list-style: disc;
+}
+
+.select-input {
+  width: 100%;
+}
+
+.userstory-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+.modifierButton {
+  display: none;
+}
+.sticky-choice:hover .modifierButton{
+  display: block;
+}
+
+.modifier-story {
+  display: none;
+}
+.zone {
+  cursor: pointer;
+}
+
+.zone.nouvelle-couleur-hover {
+  background-color: rgba(99, 166, 255, 0.2);
+}
+
+
+.zone:hover .modifier-story {
+  display: block;
+}
+
+.supprimer-story {
+  display: none;
+}
+
+.zone:hover .supprimer-story {
+  display: block;
+}
+
+.paragraphe {
+  margin-bottom: 0;
+}
+
+.scrum-board-story {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.breadcrumb-scrum {
+  font-size: 13px;
+  cursor: pointer;
+}
+
+
+#searchInput {
+  width: 150px;
+  height: 30px;
+  border-radius: 3px;
+  border: 2px solid #E2E8F0;
+  background-color: #F7F5F5;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 700;
+  font-size: 10px;
+}
+
+
+.carte {
+  position: relative; 
+}
+
+.sticky-choice {
+  position: sticky;
+  top: 0;       
+  z-index: 1; 
+  background-color: #F7F5F5;
+}
+
+.arrive {
+  overflow-y: auto; 
+  max-height: 500px; 
+}
+.cartes{
+  width: 1200px;
+}
+
+@media screen and (max-width: 1040px) {
+  .cartes{
+   display: flex;
+   flex-wrap: wrap;
+   width: auto;
+  }
+  .arrive{
+    margin-top: 10px;
+  }
+  
+}
